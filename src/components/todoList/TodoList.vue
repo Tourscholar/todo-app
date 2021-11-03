@@ -17,47 +17,35 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
-import { useStore, mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import Todo from "./Todo.vue";
 export default {
   name: "TodoList",
   components: {
     Todo,
   },
-  setup() {
-    const store = useStore();
-    const todos = computed(() => {
-      return store.state.todos;
+  mounted() {
+    let touch = {};
+    this.$el.addEventListener("touchstart", (evt) => {
+      touch.startX = evt.touches[0].clientX;
+      touch.endX = 0;
     });
-    const currentIndex = computed(() => {
-      return store.state.currentIndex;
+    this.$el.addEventListener("touchmove", (evt) => {
+      touch.endX = evt.touches[0].clientX;
     });
-    const selected = computed(() => {
-      return store.state.selected;
+    this.$el.addEventListener("touchend", () => {
+      if (!touch.endX || Math.abs(touch.endX - touch.startX) < 10) {
+        return;
+      }
+      if (touch.endX < touch.startX) {
+        this.nextTodo();
+      } else {
+        this.prevTodo();
+      }
     });
-
-    onMounted(() => {
-      let touch = {};
-      this.$el.addEventListener("touchstart", (evt) => {
-        touch.startX = evt.touches[0].clientX;
-        touch.endX = 0;
-      });
-      this.$el.addEventListener("touchmove", (evt) => {
-        touch.endX = evt.touches[0].clientX;
-      });
-      this.$el.addEventListener("touchend", () => {
-        if (!touch.endX || Math.abs(touch.endX - touch.startX) < 10) {
-          return;
-        }
-        if (touch.endX < touch.startX) {
-          this.nextTodo();
-        } else {
-          this.prevTodo();
-        }
-      });
-    });
-    return { todos, currentIndex, selected };
+  },
+  computed: {
+    ...mapState(["todos", "currentIndex", "selected"]),
   },
   methods: {
     ...mapMutations(["selectTodo", "nextTodo", "prevTodo"]),
