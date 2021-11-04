@@ -17,12 +17,27 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { computed } from "vue";
+import { useStore, mapMutations } from "vuex";
 import Todo from "./Todo.vue";
 export default {
   name: "TodoList",
   components: {
     Todo,
+  },
+  setup() {
+    const store = useStore();
+    const todos = computed(() => {
+      return store.state.todos;
+    });
+    const currentIndex = computed(() => {
+      return store.state.currentIndex;
+    });
+    const selected = computed(() => {
+      return store.state.selected;
+    });
+
+    return { todos, currentIndex, selected };
   },
   mounted() {
     let touch = {};
@@ -43,9 +58,6 @@ export default {
         this.prevTodo();
       }
     });
-  },
-  computed: {
-    ...mapState(["todos", "currentIndex", "selected"]),
   },
   methods: {
     ...mapMutations(["selectTodo", "nextTodo", "prevTodo"]),
