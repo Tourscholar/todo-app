@@ -185,8 +185,8 @@ export default {
 .todo_tasks {
   opacity: 0;
   transform: scale3d(1, 0, 1);
-  // transform-origin: top;
-  // will-change: transform opacity;
+  transform-origin: top;
+  will-change: transform opacity;
 }
 .todo_subtitle {
   margin-top: 32px;

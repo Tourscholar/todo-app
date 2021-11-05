@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
-    <div class="task" v-if="!data.task.deleted">
-      <input :id="id" type="checkbox" v-model="data.task.done" />
-      <label :for="id">{{ task.title }}</label>
+    <div class="task" v-if="!task.deleted">
+      <input :id="data.id" type="checkbox" v-model="data.task.done" />
+      <label :for="data.id">{{ task.title }}</label>
       <transition name="fade">
         <span
           class="task_delete"
@@ -18,7 +18,7 @@
 
 <script>
 import { reactive } from "vue";
-import { useStore } from "vuex";
+import { mapMutations } from "vuex";
 
 let GID = 1;
 export default {
@@ -34,10 +34,10 @@ export default {
       task: props.task,
       id: `task-${GID++}`,
     });
-    const store = useStore();
-    const deleteTask = store.state.deleteTask;
-
-    return { data, deleteTask };
+    return { data };
+  },
+  methods: {
+    ...mapMutations(["deleteTask"]),
   },
 };
 </script>
