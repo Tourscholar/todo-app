@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseUrl: "http://localhost:3000",
-  withCredentials: true,
-  timeout: 1000,
+  baseURL: "http://localhost:3000",
+  timeout: 10000,
 });
 
 export const post = (url, data = {}) => {
