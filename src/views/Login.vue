@@ -259,7 +259,7 @@ form.sign-in-form {
   cursor: pointer;
   transition: 0.5s;
   text-align: center;
-  line-height: 49px
+  line-height: 49px;
 }
 
 .btn:hover {
@@ -339,6 +339,7 @@ form.sign-in-form {
   height: 41px;
   font-weight: 600;
   font-size: 0.8rem;
+  line-height: 0.5px;
 }
 
 .right-panel .image,
