@@ -60,14 +60,14 @@ export default createStore({
           },
           {
             title: "Quick Prototyping",
-            date: new Date("2019-09-16"),
+            date: new Date("2021-11-10"),
             done: false,
             deleted: false,
           },
           {
             id: 8,
             title: "UX Conference",
-            date: new Date("2019-09-16"),
+            date: new Date("2021-11-10"),
             done: false,
             deleted: false,
           },
