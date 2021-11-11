@@ -162,6 +162,7 @@ form {
   overflow: hidden;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  margin-bottom: 60px;
 }
 
 form.sign-up-form {
