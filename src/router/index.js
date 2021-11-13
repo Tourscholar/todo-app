@@ -13,7 +13,11 @@ const routes = [
     component: Login,
     beforeEnter(to, from, next) {
       const { isLogin } = localStorage;
-      isLogin ? next({ name: "Home" }) : next();
+      if (isLogin === "false") {
+        next();
+      } else {
+        next({ name: "Home" });
+      }
     },
   },
 ];
@@ -24,7 +28,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isLogin = localStorage.isLogin;
-  isLogin || to.name === "Login" ? next() : next({ name: "Login" });
+  const { isLogin } = localStorage;
+  if (isLogin === "true" || to.name === "Login") {
+    next();
+  } else  {
+    next({ name: "Login" });
+  }
 });
 export default router;
