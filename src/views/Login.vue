@@ -95,6 +95,7 @@ export default {
           password: data.password,
         });
         if (result?.errno === 0) {
+          localStorage.username = data.username;
           localStorage.isLogin = true;
           console.log("Login Successful!");
           router.push({ name: "Home" });

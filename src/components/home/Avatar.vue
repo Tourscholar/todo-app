@@ -3,7 +3,7 @@
     <div class="avatar_face">
       <img src="@/assets/face.jpeg" />
     </div>
-    <h2 class="avatar_name">Hello, Jane.</h2>
+    <h2 class="avatar_name">Hello, {{data.username}}.</h2>
     <p class="avatar_tips">
       Looks like feed good.<br />You have {{ todayTasks.length }} tasks to do
       today.
@@ -20,6 +20,7 @@ export default {
   name: "Avatar",
   setup() {
     const data = reactive({
+      username: localStorage.username,
       today: new Date(),
     });
     const store = useStore();
