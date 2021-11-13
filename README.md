@@ -9,3 +9,14 @@
   - ```npm install```		引入需要的包
   - ```npm run serve```		 启动项目
 
+### 项目展示
+  - 登录页
+      <img src="https://z3.ax1x.com/2021/11/12/IBH51e.png" width="200" />
+  - 首页
+      <img src="https://z3.ax1x.com/2021/11/13/Isyfv6.jpg" width="200" />
+  - 任务页
+      <img src="https://z3.ax1x.com/2021/11/13/Is6ZrT.jpg" width="200" />
+
+### 项目后续
+  * - [ ] 首页连接数据库实现登录用户动态展示
+  * - [ ] 任务页连接数据库实现数据库层的增删改查
