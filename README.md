@@ -12,7 +12,7 @@
 ### 项目展示
 
   - 登录页
-      <img src="https://z3.ax1x.com/2021/11/12/IBH51e.png" width="200" />
+  <img src="https://z3.ax1x.com/2021/11/12/IBH51e.png" width="200" />
   - 首页
       <!-- <img src="https://z3.ax1x.com/2021/11/13/Isyfv6.jpg" width="200" /> -->
   - 任务页
