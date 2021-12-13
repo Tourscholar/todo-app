@@ -66,7 +66,7 @@ export default {
       const doneCount = props.todo.tasks.filter(
         (t) => !t.deleted && t.done
       ).length;
-      return `${Math.round((doneCount / totalCount) * 100)}%`;
+      return `${Math.round((doneCount / totalCount) * 100) || 0}%`;
     });
     const progressColor = computed(() => {
       const colorLeft = `color-stop(30%, ${props.todo.colors[0]})`;
